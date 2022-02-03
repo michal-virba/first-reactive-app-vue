@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue - Grocery List</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600&family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Grocery List</h1>
+    </header>
+    <section id="grocery-list">
+      <h2>What to buy?</h2>
+
+      <div class="inputs">
+        <label for="subject"
+          >Subject:
+          <input type="text" v-model="enteredItem" placeholder="item" />
+        </label>
+
+        <label for="quantity"
+          >Quantity:
+          <input
+            type="number"
+            v-model="enteredHowMany"
+            placeholder="how many?"
+          />
+        </label>
+
+        <label for="units">
+          Units:
+          <select name="unit" v-model="enteredUnit">
+            <option value="kg">kg</option>
+            <option value="pcs">pcs</option>
+            <option value="l">l</option>
+          </select>
+        </label>
+
+        <button @click="addItem">Add Item on List</button>
+      </div>
+
+      <ul>
+        <li
+          v-for="item, key in items"
+          :key="key"
+          @click="puttingToCart(key)"
+          :class="{bought: items[key][3]}"
+        >
+          <span>{{ item[0] }}</span> <span>{{ item[1] }} {{ item[2] }}</span>
+          <button @click.stop="removeItem(key)">Remove</button>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
