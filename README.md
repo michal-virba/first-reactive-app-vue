@@ -7,6 +7,7 @@ My first ever reactive app (grocery list). Created after 3 days of learning Vue.
 2. Add to the second input field with a label 'Quantity' the number of how many of that item you want to buy.  
 3. Choose the unit of the quantity. (l - litres, kg - kilograms, pcs - pieces)  
 **CAUTION:** If only one of those three fields is empty, the item can't be added. (Alert in application)  
+4. Click on button "Add Item on List" for the adding of an item to the list.
 ### Working with an item in the list
 1. If the added item is wrong, simply using the button with the caption "Remove" will delete this item, every item has this button.
 2. If the item is in the shopping cart, simply click on it in the list will change its styling. It will become gray with an overline font. 
